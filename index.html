@@ -1,836 +1,823 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
-	<!-- Basic Page Need
-    ================================================== -->
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fadil Tools</title>
 
-	<!-- Specific Meta
-    ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<meta name="description" content="Intimate is a One Page Personal & Agency Portfolio Template." />
-	<meta name="keywords"
-		content="HTML5, Template, Design, agency, blog, business, clean, creative, marketing, modern, multipurpose, portfolio, seo, startup, studio, trending" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Titles
-    ================================================== -->
-	<title>Fadil Army Renatha | Portfolio</title>
+    <style>
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, #1f3b73, transparent 35%),
+                radial-gradient(circle at bottom right, #14532d, transparent 30%),
+                #0b1120;
+            color: #e5e7eb;
+        }
 
-	<!-- Faviconss
-    ================================================== -->
-	<link rel="shortcut icon" href="assets/images/favicon.ico" />
-	<link rel="apple-touch-icon" sizes="72x72" href="assets/images/android-icon-72x72.png" />
-	<link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-icon-144x144.png" />
+        .navbar {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
-	<!-- Custom Font
-	================================================== -->
-	<link
-		href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
-		rel="stylesheet">
+        .app-card {
+            background: rgba(15, 23, 42, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
 
-	<!-- CSS
-    ================================================== -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
-	<link rel="stylesheet" href="assets/css/simple-scrollbar.css" />
-	<link rel="stylesheet" href="assets/css/odometer-theme-default.css" />
-	<link rel="stylesheet" href="assets/css/fontawesome.all.min.css" />
-	<link rel="stylesheet" href="assets/css/style.css" />
+        .form-control {
+            background-color: #020617;
+            color: #e5e7eb;
+            border: 1px solid #334155;
+        }
 
-	<script src="assets/js/modernizr.min.js"></script>
+        .form-control:focus {
+            background-color: #020617;
+            color: #fff;
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 0.2rem rgba(56, 189, 248, 0.15);
+        }
+
+        textarea {
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+
+        .nav-pills .nav-link {
+            color: #cbd5e1;
+            border-radius: 14px;
+        }
+
+        .nav-pills .nav-link.active {
+            background: linear-gradient(135deg, #2563eb, #06b6d4);
+            color: white;
+        }
+
+        .title-gradient {
+            background: linear-gradient(135deg, #38bdf8, #22c55e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .placeholder-box {
+            border: 1px dashed #475569;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            color: #94a3b8;
+        }
+    </style>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target=".navigation-area">
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		Start Site Header
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<header class="site-header default-header-style">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-12">
-					<div class="navigation-area">
-						<!-- Site Branding -->
-						<div class="site-branding">
-							<a href="index.html">
-								<img src="assets/images/logo/logo2.png" width="170px" alt="Site Logo" />
-							</a>
-						</div><!--  /.site-branding -->
+<body>
 
-						<!-- Site Navigation -->
-						<div class="site-navigation">
-							<nav class="navigation">
-								<!-- Main Menu -->
-								<div class="menu-wrapper">
-									<div class="menu-content">
-										<ul class="mainmenu">
-											<li>
-												<a class="nav-link" href="#hero-block">Home</a>
-											</li>
-											<li>
-												<a class="nav-link" href="#service-block">Services</a>
-											</li>
-											<li>
-												<a class="nav-link" href="#about-block">About</a>
-											</li>
-											<li>
-												<a class="nav-link" href="#portfolio-block">Portfolio</a>
-											</li>
-											<li>
-												<a class="nav-link" href="#contact-block">Contact</a>
-											</li>
-										</ul> <!-- /.menu-list -->
-									</div> <!-- /.hours-content-->
-								</div><!-- /.menu-wrapper -->
-							</nav>
-						</div><!-- /.site-navigation -->
-						<div class="hamburger-menus">
-							<span></span>
-							<span></span>
-							<span></span>
-						</div><!-- /.hamburger-menus -->
-					</div><!-- /.navigation-area -->
-				</div><!-- /.col-12 -->
-			</div><!-- /.row -->
-		</div><!-- /.container-fluid -->
-		<div class="mobile-sidebar-menu sidebar-menu">
-			<div class="overlaybg"></div>
-		</div>
-	</header>
-	<!--~~./ end site header ~~-->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Fadil Tools</a>
 
-	<!--********************************************************-->
-	<!--********************* SITE CONTENT *********************-->
-	<!--********************************************************-->
-	<div class="site-content">
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-				Hero Block
-		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<div id="hero-block" class="hero-block personal-home bg-image particles-version"
-			style="background-image: url('assets/images/bg/hero-bg-10.jpg'); height: 400px;">
-			<div id="particles-js"></div>
-			<div class="d-lg-none waves-effect bottom" style="background-image: url('assets/images/others/shape.png');">
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="hero-content-area">
-							<div class="hero-desc">
-								Hi <span></span> I am
-							</div>
-							<h2 class="hero-title">
-								Fadil Army Renatha
-							</h2><!-- /.hero-title -->
-							<!-- <a href="#" class="btn btn-primary">My Works</a> -->
-						</div><!-- /.hero-content-area -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /.hero-block -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Start Services Block
-		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<div id="service-block" class="services-block pd-t-170">
-			<div class="container container-1200">
-				<div class="row justify-content-center">
-					<div class="col-lg-8">
-						<div class="section-title text-center">
-							<h2 class="title-main">
-								01 <span>Services</span>
-							</h2><!-- /.title-main -->
-						</div><!-- /.section-title -->
-					</div><!-- /.col-lg-8 -->
-				</div><!-- /.row -->
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto nav-pills gap-2">
+                    <li class="nav-item">
+                        <button class="nav-link active" onclick="showMenu('sorting', this)">Sorting IP</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" onclick="showMenu('block', this)">Block IP</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" onclick="showMenu('forti', this)">Create Object Forti</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" onclick="showMenu('checkpoint', this)">
+                            Create Object Checkpoint
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-				<div class="row services-items-list gutters-30">
-					<!-- /.col-lg-4 -->
-					
-					<div class="col-lg-4 col-md-6">
-						<a class="service-item" href="#">
-							<div class="service-icon">
-								<h2 class="my-auto"><i class="fa fa-network-wired" aria-hidden="true"></i></h2>
-							</div>
-							<!-- /.service-icon -->
-							<h3 class="title">Network</h3>
-						</a>
-						<!-- /.service-item -->
-					</div>
-					<!-- /.col-lg-4 -->
-					<div class="col-lg-4 col-md-6">
-						<a class="service-item" href="#">
-							<div class="service-icon">
-								<h2 class="my-auto"><i class="fa fa-cloud" aria-hidden="true"></i></h2>
-							</div>
-							<!-- /.service-icon -->
-							<h3 class="title">Cyber Security</h3>
-						</a>
-						<!-- /.service-item -->
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<a class="service-item" href="#">
-							<div class="service-icon">
-								<h2 class="my-auto"><i class="fa fa-desktop" aria-hidden="true"></i></h2>
-							</div>
-							<!-- /.service-icon -->
-							<h3 class="title">Software</h3>
-						</a>
-						<!-- /.service-item -->
-					</div>
-				</div><!-- /.row -->
-			</div><!-- /.container -->
-		</div>
-		<!--~~./ end services block ~~-->
+    <div class="container py-5">
 
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Start About Us Block
-		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<div id="about-block" class="about-us-block pd-t-170">
-			<div class="container container-1200">
-				<div class="row justify-content-center">
-					<div class="col-lg-8">
-						<div class="section-title text-center">
-							<h2 class="title-main">
-								02 <span>About</span>
-							</h2><!-- /.title-main -->
-						</div><!-- /.section-title -->
-					</div><!-- /.col-lg-8 -->
-				</div><!-- /.row -->
+        <div id="sorting" class="menu-content">
+            <div class="app-card p-4 p-md-5">
+                <div class="mb-4">
+                    <h2 class="title-gradient">IP Sorter & Duplicate Remover</h2>
+                </div>
 
-				<div class="row align-items-center flex-column-reverse flex-lg-row mrb-55">
-					<div class="col-lg-6">
-						<div class="about-content text-center">
-							<h3 class="heading">About Me</h3>
-							<p class="description">I am Fresh Graduate</p>
-							<p>Fresh graduate in Information Technology with a high enthusiasm for pursuing a career in the IT field. Possesses a solid understanding of fundamental computer concepts, software development networking, and cyber security. Experienced in academic projects that have honed technical skills. Detail-oriented, hardworking, and adaptable to change. Eager to continuously learn and make positive contributions in every task</p>
-							<div class="author-sign">
-								<img src="assets/images/others/sign.png" alt="Author Sign" />
-							</div>
-						</div><!-- /.about-content -->
-					</div><!-- /.col-lg-6 -->
-					<div class="col-lg-6">
-						<div class="mock-up-thumb">
-							<img src="assets/images/about2.png" alt="About Mock" />
-						</div><!-- /.mock-up-block -->
-					</div><!-- /.col-lg-6 -->
-				</div><!-- /.row -->
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <label class="form-label fw-semibold">Input IP / CIDR / Range</label>
+                        <textarea id="inputIP" class="form-control" rows="16" placeholder="Ex:
+10.10.10.10
+10.10.9.0/25
+10.10.8.10-10.10.8.50"></textarea>
 
-				<div class="row">
-					<div class="col-md-6 col-lg-6">
-						<div class="fanfact-promo-numbers">
-							<div class="promo-number">
-								<div class="odometer" data-odometer-final="9">0</div><!-- /.odometer -->
-								<h4 class="promo-title">Project Complete</h4><!-- /.promo-title -->
-							</div><!-- /.promo-number -->
-							<div class="promo-number">
-								<div class="odometer" data-odometer-final="1">0</div><!-- /.odometer -->
-								<h4 class="promo-title">Years Experience</h4><!-- /.promo-title -->
-							</div><!-- /.promo-number -->
-							<!-- <div class="promo-number">
-								<div class="odometer" data-odometer-final="16">0</div>
-								<h4 class="promo-title">Award Wines</h4>
-							</div>
-							<div class="promo-number">
-								<div class="odometer" data-odometer-final="156">0</div>
-								<h4 class="promo-title">Project Complete</h4>
-							</div> -->
-						</div><!-- /.fanfact-promo-numbers -->
-					</div><!-- /.col-lg-6 -->
+                        <div class="d-flex gap-2 mt-3 flex-wrap">
+                            <button class="btn btn-info text-dark fw-semibold" onclick="processIP()">Process</button>
+                            <button class="btn btn-success" onclick="copyOutput(this)">Copy Output</button>
+                            <button class="btn btn-outline-light" onclick="clearAll()">Clear</button>
+                        </div>
+                    </div>
 
-					<div class="col-md-6 col-lg-6">
-						<div class="skill-with-social">
-							<div class="skill-list">
-								<h3 class="heading">My Skills</h3>
-								<div class="single-skill">
-									<h3 class="skill-title text-danger">Networking & Infrastructure:</h3>
-									<h3 class="skill-title">Switching, Routing, and Wireless (Cisco & MikroTik)</h3>
-									<div class="progress">
-										<div class="progress-bar" style="width: 0%">
-										</div>
-									</div>
-								</div>
-								<!-- /.single-skill -->
-								<div class="single-skill">
-									<h3 class="skill-title text-danger">Cyber Security:</h3>
-									<h3 class="skill-title">IDS/IPS, SIEM, Firewall, Threat Hunting</h3>
-									<div class="progress">
-										<div class="progress-bar" style="width: 0%">
-										</div>
-									</div>
-								</div><!-- /.single-skill -->
-								<!-- /.single-skill -->
-								<div class="single-skill">
-									<h3 class="skill-title text-danger">Programming Languages & Database:</h3>
-									<h3 class="skill-title">Java, Python, C#, JavaScript, PHP, VB, MySQL</h3>
-									<div class="progress">
-										<div class="progress-bar" style="width: 0%">
-										</div>
-									</div>
-								</div><!-- /.single-skill -->
-								<!-- /.single-skill -->
-								<div class="single-skill">
-									<h3 class="skill-title text-danger">Soft Skills:</h3>
-									<h3 class="skill-title">Problem-Solving, Adaptability, Team Collaboration, Time Management, Continuous Learning</h3>
-									<div class="progress">
-										<div class="progress-bar" style="width: 0%">
-										</div>
-									</div>
-								</div><!-- /.single-skill -->
-							</div><!-- /.skill-list -->
+                    <div class="col-lg-6">
+                        <label class="form-label fw-semibold">Output</label>
+                        <textarea id="outputIP" class="form-control" rows="16" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-							<div class="social-status">
-								<h3 class="heading">Follow Me</h3>
-								<div class="social-profile-list">
-									<a href="https://www.instagram.com/fadilarrntha/"><i class="fab fa-instagram"></i></a>
-									<a href="https://www.linkedin.com/in/fadilarmyrenatha/"><i class="fab fa-linkedin-in"></i></a>
-								</div>
-							</div><!-- /.social-status -->
-						</div>
-					</div>
-				</div><!-- /.row -->
-			</div><!-- /.container -->
-		</div>
-		<!--~~./ end about us block ~~-->
+        <div id="block" class="menu-content d-none">
+            <div class="app-card p-4 p-md-5">
+                <h2 class="title-gradient">Block IP Generator</h2>
 
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Start Portfolio Block
-		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<div id="portfolio-block" class="portfolio-block pd-t-170">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-8">
-						<div class="section-title text-center">
-							<h2 class="title-main">
-								03 <span>Portfolio</span>
-							</h2><!-- /.title-main -->
-						</div><!-- /.section-title -->
-					</div><!-- /.col-lg-8 -->
-				</div><!-- /.row -->
-			</div><!-- /.container -->
+                <div class="row g-4 mt-2">
+                    <div class="col-lg-5">
+                        <label class="form-label fw-semibold">Input IP / Domain</label>
+                        <textarea id="blockInput" class="form-control" rows="15" placeholder="Ex:
+10.10.10.10
+10.10.10.11
+xxx.com"></textarea>
 
-			<div class="container custom-container-1650">
-				<div class="row">
-					<div class="col-12 text-center">
-						<ul class="portfolio-filter">
-							<li>
-								<a href="#" data-filter="*" class="filter active">All</a>
-							</li>
-							<li>
-								<a href="#" data-filter=".print" class="filter">Mobile</a>
-							</li>
-							<li>
-								<a href="#" data-filter=".web" class="filter">Website</a>
-							</li>
-							<li>
-								<a href="#" data-filter=".mockups" class="filter">Desktop</a>
-							</li>
-							<li>
-								<a href="#" data-filter=".application" class="filter">Certification</a>
-							</li>
-						</ul>
-					</div><!-- /.col-12 -->
-				</div><!-- /.row -->
-				<div class="row portfolio-grid gutters-40">
-			
-					<div class="item col-lg-6 col-xl-6 col-md-12 print">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/siaseb.gif" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h5 class="heading">MOBILE SIASEB BRK SYARIAH</h5>
-									<p class="cat">Mobile-based application used by BRK Syariah bank customers to carry out the administration process for safe deposit box services.</p>
-									<p class="cat text-primary">This image is a GIF</p>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
-			
-					<div class="item col-lg-6 col-xl-6 col-md-12 web">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/macetpku.gif" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">Pekanbaru City Congestion Information System</h3>
-									<p class="cat">Web-based information system to see the level of congestion risk in Pekanbaru City based on vehicle volume and road damage</p>
-									<p class="cat text-primary">This image is a GIF</p>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
-			
-					<div class="item col-lg-6 col-xl-6 col-md-12 mockups">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/dental.gif" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">Dental Care</h3>
-									<p class="cat">Desktop-based application used by dental clinic employees which is expected to help with the patient administration process. The application was built using the Java programming language</p>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
-			
-					<div class="item col-lg-6 col-xl-6 col-md-12 web">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/posyandu.gif" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">Posyandu Information System</h3>
-									<p class="cat">A web-based application used by health workers to simplify the POSYANDU administration service process</p>
-									<p class="cat text-primary">This image is a GIF</p>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
-			
-					<div class="item col-lg-6 col-xl-6 col-md-12 mockups">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/mathhunter.gif" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">Math Hunter</h3>
-									<p class="cat">"Math Hunter" is a 3D action game that combines math challenges with hunting adventures. In this game, players enter a wondrous jungle world and must hunt game animals, such as deer, while answering math questions that arise when capturing these animals. This application was built using Unity and C# programming language</p>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
-			
-					<div class="item col-lg-6 col-xl-6 col-md-12 print">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/londrisepatu.png" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">Shoe Laundry Application</h3>
-									<p class="cat">Mobile-based application for ordering shoe laundry services. This application was built using Android Studio</p>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
-			
-					<div class="item col-lg-6 col-xl-6 col-md-12 web">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/cece.gif" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">Clothing store</h3>
-									<p class="cat">Is a simple web-based e-commerce application</p>
-									<p class="cat text-primary">This image is a GIF</p>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
-			
-					<div class="item col-lg-6 col-xl-6 col-md-12 web">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/deqdeq.gif" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">Event Organizer Information System</h3>
-									<p class="cat">Web-based information system to obtain information about services and services from event organizer providers. This website was created using VB.Net</p>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
+                        <label class="form-label fw-semibold mt-3">Group Address</label>
+                        <input type="text" id="groupAddress" class="form-control" placeholder="INC00001">
 
-					<div class="item col-lg-6 col-xl-6 col-md-12 application">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/bnspprogammer.jpg" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">BNSP Programmer</h3>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
+                        <div class="d-flex gap-2 mt-3 flex-wrap">
+                            <button class="btn btn-info text-dark fw-semibold" onclick="generateBlockIP()">
+                                Generate CLI
+                            </button>
+                            <button class="btn btn-outline-light" onclick="clearBlock()">
+                                Clear
+                            </button>
+                        </div>
+                    </div>
 
-					<div class="item col-lg-6 col-xl-6 col-md-12 application">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/mtcna.jpg" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">MTCNA</h3>
-									<p class="cat">MikroTik Certified Network Associate (MTCNA) is a certification program from MikroTik
-										for Network Engineers at the entry-level level.</p>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
+                    <div class="col-lg-7">
+                        <div>
+                            <label class="form-label fw-semibold">FortiGate CLI</label>
+                            <textarea id="fortiOutput" class="form-control" rows="8" readonly></textarea>
 
-					<div class="item col-lg-6 col-xl-6 col-md-12 application">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/ccna1.jpg" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">CCNAv7: Introduction to Networks</h3>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
+                            <button id="copyFortiBtn" class="btn btn-success mt-2" onclick="copyFortiOutput(this)">
+                                Copy Forti
+                            </button>
+                        </div>
 
-					<div class="item col-lg-6 col-xl-6 col-md-12 application">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/ccna2.jpg" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">CCNAv7: Switching, Routing, and Wireless Essentials</h3>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
-					
-					<div class="item col-lg-6 col-xl-6 col-md-12 application">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/cybersecurityessential.jpg" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">Cybersecurity Essentials</h3>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
+                        <div class="mt-2">
+                            <label class="form-label fw-semibold">Check Point CLI</label>
+                            <textarea id="checkpointOutput" class="form-control" rows="7" readonly></textarea>
 
-					<div class="item col-lg-6 col-xl-6 col-md-12 application">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/cyberops.jpg" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">CyberOps Associate</h3>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
+                            <button id="copyCheckpointBtn" class="btn btn-warning mt-2" onclick="copyCheckpointOutput(this)">
+                                Copy Check Point
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-					<div class="item col-lg-6 col-xl-6 col-md-12 application">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/csoc.jpg" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">Cyber Security Operations Center (CSOC) - SOC Analyst</h3>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
+        <div id="forti" class="menu-content d-none">
+            <div class="app-card p-4 p-md-5">
+                <h2 class="title-gradient">Create Object Forti</h2>
 
-					<div class="item col-lg-6 col-xl-6 col-md-12 application">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/threathunting.jpg" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">Cybersecurity Threat Hunting for SOC Analysts</h3>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
+                <div class="row g-4 mt-2">
+                    <div class="col-lg-5">
+                        <label class="form-label fw-semibold">Input IP / CIDR / Domain</label>
+                        <textarea id="fortiInput" class="form-control" rows="14" placeholder="Ex:
+10.10.10.0/24
+10.10.11.128/25"></textarea>
 
-					<div class="item col-lg-6 col-xl-6 col-md-12 application">
-						<div class="portfolio-item">
-							<figure class="portfolio-thumb">
-								<img src="assets/images/portfolio/redhatdo188.jpg" alt="portfolio Item">
-							</figure><!-- /.portfolio-thumb -->
-							<div class="overlay-wrapper">
-								<div class="overlay"></div><!-- /.overlay -->
-								<div class="portfolio-info">
-									<h3 class="heading">Red Hat OpenShift Development I: Introduction to Containers with Podman (DO188)</h3>
-								</div><!-- /.portfolio-info -->
-							</div><!-- /.overlay-wrapper -->
-						</div><!-- /.portfolio-item -->
-					</div><!-- /.col-xl-6 -->
-					
-				</div><!-- /.row -->
-			</div>
-			<!-- /.container -->
-		</div>
-		<!--~~./ end portfolio block ~~-->
+                        <label class="form-label fw-semibold mt-3">Group Address</label>
+                        <input type="text" id="fortiGroupAddress" class="form-control" placeholder="RITM0001">
 
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Start Site Footer
-		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<footer id="contact-block" class="site-footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="contact-block">
-							<div class="section-title">
-								<h2 class="title-main">
-									04 <span>Contact</span>
-								</h2><!-- /.title-main -->
-								<p class="sub-title">Don’t Hesitate To Contact With Me</p>
-							</div><!-- /.section-title -->
-							<div class="contact-form-area">
-								<form id="contact_form" class="contact-form" action="#">
-									<div class="row gx-4">
-										<div class="col-lg-6 col-md-6">
-											<div class="form-group">
-												<input id="name" name="name" type="text" class="form-control" placeholder="Your Name*" readonly>
-											</div>
-										</div>
-										<!--./ col-lg-6-->
-										<div class="col-lg-6 col-md-6">
-											<div class="form-group">
-												<input class="form-control" id="email" name="email" type="email" placeholder="Your Email*" readonly>
-											</div>
-										</div>
-										<!--./ col-lg-6 -->
-										<div class="col-12">
-											<div class="form-group">
-												<textarea id="message" name="message" class="form-control" rows="4"
-													placeholder="Anything that we can help you?" readonly></textarea>
-											</div>
-										</div><!-- /.col-12 -->
-										<div class="col-12">
-											<button type="submit" class="btn btn-primary" disabled>Send Me</button>
-										</div>
-										<!--./ col-lg-6 -->
-									</div><!-- /.row -->
-								</form><!-- /.contact-form -->
-							</div><!-- /.contact-form-area -->
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="footer-content-wrapper">
-							<div class="footer-widget-area">
-								<div class="row">
-									<!--~~~~~ Start Widget Links ~~~~~-->
-									<div class="col-lg-6 col-md-6">
-										<aside class="widget widget_links">
-											<h2 class="widget-title"><span>Quick Link</span></h2>
-											<div class="widget-content">
-												<ul>
-													<li><a href="#portfolio-block">Portfolio</a></li>
-													<li><a href="#about-block">About</a></li>
-													<li><a href="#service-block">Services</a></li>
-												</ul>
-											</div>
-										</aside>
-									</div>
-									<!--~./ end links widget ~-->
-									<!--~~~~~ Start Widget Links ~~~~~-->
-									<div class="col-lg-6 col-md-6">
-										<aside class="widget widget_contact">
-											<div class="widget-content">
-												<div class="single-contact-info">
-													<div class="icon">
-														<i class="fas fa-envelope"></i>
-													</div>
-													<p><a href="mailto:fadilarrntha@gmail.com">fadilarrntha@gmail.com</a></p>
-												</div><!-- /.single-contact-info -->
-												<div class="single-contact-info">
-													<div class="icon">
-														<i class="fas fa-phone-alt"></i>
-													</div>
-													<a class="text-white" target="_blank" href="https://api.whatsapp.com/send/?phone=6282293957632&text&type=phone_number&app_absent=0">+62 82293957632</a>
-												</div><!-- /.single-contact-info -->
-											</div>
-										</aside>
-									</div>
-									<!--~./ end links widget ~-->
-								</div>
-							</div>
-							<!--~./ end footer widgets area ~-->
-							<!-- <div class="copyright-text text-center">
-								<p>Copyright @ <a href="#">HTMLguru </a> 2021</p>
-							</div> -->
-							<!--~./ end copyright text ~-->
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!--~./ end site footer ~-->
-	</div>
-	<!--~~./ end site content ~~-->
+                        <label class="form-label fw-semibold mt-3">Format Hostname</label>
+                        <input type="text" id="fortiHostnameFormat" class="form-control" placeholder="N_">
 
-	<!-- All The JS Files
-			================================================== -->
-	<script src="assets/js/jquery.js"></script>
-	<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/plugins.js"></script>
-	<script src="assets/js/imagesloaded.pkgd.min.js"></script>
-	<script src="assets/js/simple-scrollbar.min.js"></script>
-	<script src="assets/js/background-parallax.js"></script>
-	<script src="assets/js/theia-sticky-sidebar.min.js"></script>
-	<script src="assets/js/ResizeSensor.min.js"></script>
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<script src="assets/js/isotope.pkgd.min.js"></script>
-	<script src="assets/js/packery-mode.pkgd.min.js"></script>
-	<script src="assets/js/scrolla.jquery.min.js"></script>
-	<script src="assets/js/odometer.min.js"></script>
-	<script src="assets/js/isInViewport.jquery.js"></script>
-	<script src="assets/js/contact.js"></script>
-	<script src="assets/js/main.js"></script><!-- main-js -->
+                        <div class="d-flex gap-2 mt-3 flex-wrap">
+                            <button class="btn btn-info text-dark fw-semibold" onclick="generateFortiObject()">
+                                Generate CLI
+                            </button>
 
-	<!-- This script use for this page -->
-	<script src="assets/js/particle-animation.js"></script>
-	<script>
-		particlesJS('particles-js', {
-			"particles": {
-				"number": {
-					"value": 50,
-					"density": {
-						"enable": true,
-						"value_area": 800
-					}
-				},
-				"color": {
-					"value": "#888"
-				},
-				"shape": {
-					"type": "circle",
-					"stroke": {
-						"width": 0,
-						"color": "#888"
-					},
-					"polygon": {
-						"nb_sides": 5
-					},
-					"image": {
-						"src": "img/github.svg",
-						"width": 100,
-						"height": 100
-					}
-				},
-				"opacity": {
-					"value": 0.5,
-					"random": false,
-					"anim": {
-						"enable": false,
-						"speed": 3,
-						"opacity_min": 0.1,
-						"sync": false
-					}
-				},
-				"size": {
-					"value": 5,
-					"random": true,
-					"anim": {
-						"enable": false,
-						"speed": 40,
-						"size_min": 0.1,
-						"sync": false
-					}
-				},
-				"line_linked": {
-					"enable": true,
-					"distance": 150,
-					"color": "#888",
-					"opacity": 0.4,
-					"width": 1
-				},
-				"move": {
-					"enable": true,
-					"speed": 6,
-					"direction": "none",
-					"random": false,
-					"straight": false,
-					"out_mode": "out",
-					"attract": {
-						"enable": false,
-						"rotateX": 600,
-						"rotateY": 1200
-					}
-				}
-			},
-			"interactivity": {
-				"detect_on": "canvas",
-				"events": {
-					"onhover": {
-						"enable": true,
-						"mode": "repulse"
-					},
-					"onclick": {
-						"enable": true,
-						"mode": "push"
-					},
-					"resize": true
-				},
-				"modes": {
-					"grab": {
-						"distance": 400,
-						"line_linked": {
-							"opacity": 1
-						}
-					},
-					"bubble": {
-						"distance": 400,
-						"size": 40,
-						"duration": 2,
-						"opacity": 8,
-						"speed": 3
-					},
-					"repulse": {
-						"distance": 200
-					},
-					"push": {
-						"particles_nb": 4
-					},
-					"remove": {
-						"particles_nb": 2
-					}
-				}
-			},
-			"retina_detect": true,
-			"config_demo": {
-				"hide_card": false,
-				"background_color": "#b61924",
-				"background_image": "",
-				"background_position": "50% 50%",
-				"background_repeat": "no-repeat",
-				"background_size": "cover"
-			}
-		}
-		);
-	</script>
+                            <button class="btn btn-success fw-semibold" onclick="copyFortiObjectOutput(this)">
+                                Copy Output
+                            </button>
+
+                            <button class="btn btn-outline-light" onclick="clearFortiObject()">
+                                Clear
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <label class="form-label fw-semibold">FortiGate CLI Output</label>
+                        <textarea id="fortiObjectOutput" class="form-control" rows="22" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="checkpoint" class="menu-content d-none">
+            <div class="app-card p-4 p-md-5">
+                <h2 class="title-gradient">Create Object Checkpoint</h2>
+
+                <div class="row g-4 mt-2">
+                    <div class="col-lg-5">
+                        <label class="form-label fw-semibold">Input IP / CIDR / Domain</label>
+                        <textarea id="checkpointInput" class="form-control" rows="14" placeholder="Ex:
+10.10.10.0/24
+10.10.11.128/25"></textarea>
+
+                        <label class="form-label fw-semibold mt-3">Group Address</label>
+                        <input type="text" id="checkpointGroupAddress" class="form-control" placeholder="OAM_NOKIA">
+
+                        <label class="form-label fw-semibold mt-3">Format Hostname</label>
+                        <input type="text" id="checkpointHostnameFormat" class="form-control" placeholder="N_">
+
+                        <div class="d-flex gap-2 mt-3 flex-wrap">
+                            <button class="btn btn-info text-dark fw-semibold" onclick="generateCheckpointObject()">
+                                Generate CLI
+                            </button>
+
+                            <button class="btn btn-success fw-semibold" onclick="copyCheckpointObjectOutput(this)">
+                                Copy Output
+                            </button>
+
+                            <button class="btn btn-outline-light" onclick="clearCheckpointObject()">
+                                Clear
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <label class="form-label fw-semibold">Check Point CLI Output</label>
+                        <textarea id="checkpointObjectOutput" class="form-control" rows="22" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Start Sorting
+        function showMenu(menuId, element) {
+            document.querySelectorAll('.menu-content').forEach(menu => {
+                menu.classList.add('d-none');
+            });
+
+            document.getElementById(menuId).classList.remove('d-none');
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            element.classList.add('active');
+        }
+
+        function ipToNumber(ip) {
+            return ip.split('.').reduce((acc, octet) => {
+                return (acc << 8) + parseInt(octet, 10);
+            }, 0) >>> 0;
+        }
+
+        function numberToIp(num) {
+            return [
+                (num >>> 24) & 255,
+                (num >>> 16) & 255,
+                (num >>> 8) & 255,
+                num & 255
+            ].join('.');
+        }
+
+        function isValidIP(ip) {
+            const parts = ip.split('.');
+
+            if (parts.length !== 4) return false;
+
+            return parts.every(part => {
+                const num = Number(part);
+                return part !== '' && num >= 0 && num <= 255;
+            });
+        }
+
+        function isValidCIDR(cidr) {
+            const parts = cidr.split('/');
+
+            if (parts.length !== 2) return false;
+
+            const ip = parts[0];
+            const prefix = Number(parts[1]);
+
+            return isValidIP(ip) && !isNaN(prefix) && prefix >= 0 && prefix <= 32;
+        }
+
+        function getSortValue(item) {
+            if (item.includes('/')) {
+                return ipToNumber(item.split('/')[0]);
+            }
+
+            if (item.includes('-')) {
+                return ipToNumber(item.split('-')[0].trim());
+            }
+
+            return ipToNumber(item);
+        }
+
+        function formatRange(start, end) {
+            if (start === end) {
+                return numberToIp(start);
+            }
+
+            return `${numberToIp(start)}-${numberToIp(end)}`;
+        }
+
+        function processIP() {
+            const input = document.getElementById("inputIP").value;
+
+            const lines = input
+                .split(/\r?\n|,/)
+                .map(item => item.trim())
+                .filter(item => item !== '');
+
+            const ipSet = new Set();
+            const cidrSet = new Set();
+
+            for (const line of lines) {
+                if (line.includes('/')) {
+                    if (isValidCIDR(line)) {
+                        cidrSet.add(line);
+                    }
+                    continue;
+                }
+
+                if (line.includes('-')) {
+                    const rangeParts = line.split('-');
+
+                    if (rangeParts.length !== 2) continue;
+
+                    const startIP = rangeParts[0].trim();
+                    const endIP = rangeParts[1].trim();
+
+                    if (!isValidIP(startIP) || !isValidIP(endIP)) continue;
+
+                    let start = ipToNumber(startIP);
+                    let end = ipToNumber(endIP);
+
+                    if (start > end) {
+                        [start, end] = [end, start];
+                    }
+
+                    for (let i = start; i <= end; i++) {
+                        ipSet.add(i);
+                    }
+
+                    continue;
+                }
+
+                if (isValidIP(line)) {
+                    ipSet.add(ipToNumber(line));
+                }
+            }
+
+            const sortedIPs = [...ipSet].sort((a, b) => a - b);
+            const mergedIPs = [];
+
+            if (sortedIPs.length > 0) {
+                let start = sortedIPs[0];
+                let end = sortedIPs[0];
+
+                for (let i = 1; i < sortedIPs.length; i++) {
+                    if (sortedIPs[i] === end + 1) {
+                        end = sortedIPs[i];
+                    } else {
+                        mergedIPs.push(formatRange(start, end));
+                        start = sortedIPs[i];
+                        end = sortedIPs[i];
+                    }
+                }
+
+                mergedIPs.push(formatRange(start, end));
+            }
+
+            const finalResult = [
+                ...cidrSet,
+                ...mergedIPs
+            ].sort((a, b) => getSortValue(a) - getSortValue(b));
+
+            document.getElementById("outputIP").value = finalResult.join('\n');
+        }
+
+        function copyOutput(button) {
+
+            const output =
+                document.getElementById("outputIP");
+
+            if (!output.value.trim()) {
+                return;
+            }
+
+            navigator.clipboard.writeText(output.value);
+
+            showCopied(button, "Copy Output");
+        }
+
+        function clearAll() {
+            document.getElementById("inputIP").value = "";
+            document.getElementById("outputIP").value = "";
+        }
+        // End Sorting
+
+
+        // Start Block IP
+        function isDomain(value) {
+            const domainRegex = /^(?!:\/\/)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
+            return domainRegex.test(value);
+        }
+
+        function generateBlockIP() {
+            const input = document.getElementById("blockInput").value;
+            const groupName = document.getElementById("groupAddress").value.trim();
+
+            if (!groupName) {
+                alert("Group Address wajib diisi.");
+                return;
+            }
+
+            const lines = input
+                .split(/\r?\n|,/)
+                .map(item => item.trim())
+                .filter(item => item !== "");
+
+            const uniqueItems = [...new Set(lines)];
+
+            const ipList = [];
+            const domainList = [];
+
+            uniqueItems.forEach(item => {
+                if (isValidIP(item)) {
+                    ipList.push(item);
+                } else if (isDomain(item)) {
+                    domainList.push(item.toLowerCase());
+                }
+            });
+
+            ipList.sort((a, b) => ipToNumber(a) - ipToNumber(b));
+            domainList.sort();
+
+            let fortiOutput = "";
+            let checkpointOutput = "";
+
+            fortiOutput += "config firewall address\n";
+
+            domainList.forEach(domain => {
+                fortiOutput += `    edit ${domain}\n`;
+                fortiOutput += `        set type fqdn\n`;
+                fortiOutput += `        set fqdn ${domain}\n`;
+                fortiOutput += `    next\n`;
+            });
+
+            ipList.forEach(ip => {
+                fortiOutput += `    edit Block_${ip}\n`;
+                fortiOutput += `        set subnet ${ip} 255.255.255.255\n`;
+                fortiOutput += `    next\n`;
+            });
+
+            fortiOutput += "end\n\n";
+
+            fortiOutput += "config firewall addrgrp\n";
+            fortiOutput += `    edit ${groupName}\n`;
+
+            domainList.forEach(domain => {
+                fortiOutput += `        append member ${domain}\n`;
+            });
+
+            ipList.forEach(ip => {
+                fortiOutput += `        append member Block_${ip}\n`;
+            });
+
+            fortiOutput += "    next\n";
+            fortiOutput += "end";
+
+            checkpointOutput += `add group name "${groupName}"\n`;
+
+            domainList.forEach(domain => {
+                checkpointOutput += `add dns-domain name ".${domain}" is-sub-domain false\n`;
+                checkpointOutput += `set group name "${groupName}" members.add ".${domain}"\n`;
+            });
+
+            ipList.forEach(ip => {
+                checkpointOutput += `add host name "Block_${ip}" ip-address ${ip} groups ${groupName}\n`;
+            });
+
+            document.getElementById("fortiOutput").value = fortiOutput;
+            document.getElementById("checkpointOutput").value = checkpointOutput;
+        }
+
+        function copyFortiOutput(button) {
+
+            const output =
+                document.getElementById("fortiOutput");
+
+            if (!output.value.trim()) {
+                return;
+            }
+
+            navigator.clipboard.writeText(output.value);
+
+            showCopied(button, "Copy Forti");
+        }
+
+function copyCheckpointOutput(button) {
+
+    const output =
+        document.getElementById("checkpointOutput");
+
+    if (!output.value.trim()) {
+        return;
+    }
+
+    navigator.clipboard.writeText(output.value);
+
+    showCopied(button, "Copy Check Point");
+}
+
+        function clearBlock() {
+            document.getElementById("blockInput").value = "";
+            document.getElementById("groupAddress").value = "";
+            document.getElementById("fortiOutput").value = "";
+            document.getElementById("checkpointOutput").value = "";
+        }
+        // End Block IP
+
+        // Start Create Object Forti
+        function prefixToSubnetMask(prefix) {
+            prefix = Number(prefix);
+
+            if (prefix < 0 || prefix > 32 || isNaN(prefix)) {
+                return null;
+            }
+
+            let mask = [];
+
+            for (let i = 0; i < 4; i++) {
+                const bits = Math.min(8, prefix);
+                mask.push(256 - Math.pow(2, 8 - bits));
+                prefix -= bits;
+            }
+
+            return mask.join('.');
+        }
+
+        function generateFortiObject() {
+            const input = document.getElementById("fortiInput").value;
+            const groupName = document.getElementById("fortiGroupAddress").value.trim();
+            const hostnameFormat = document.getElementById("fortiHostnameFormat").value.trim();
+
+            if (!groupName) {
+                alert("Group Address wajib diisi.");
+                return;
+            }
+
+            if (!hostnameFormat) {
+                alert("Format Hostname wajib diisi. Contoh: H_");
+                return;
+            }
+
+            const lines = input
+                .split(/\r?\n|,/)
+                .map(item => item.trim())
+                .filter(item => item !== "");
+
+            const uniqueItems = [...new Set(lines)];
+
+            const ipList = [];
+            const cidrList = [];
+            const domainList = [];
+
+            uniqueItems.forEach(item => {
+                if (isValidCIDR(item)) {
+                    cidrList.push(item);
+                } else if (isValidIP(item)) {
+                    ipList.push(item);
+                } else if (isDomain(item)) {
+                    domainList.push(item.toLowerCase());
+                }
+            });
+
+            cidrList.sort((a, b) => {
+                const ipA = a.split('/')[0];
+                const ipB = b.split('/')[0];
+                return ipToNumber(ipA) - ipToNumber(ipB);
+            });
+
+            ipList.sort((a, b) => ipToNumber(a) - ipToNumber(b));
+            domainList.sort();
+
+            const members = [];
+            let output = "";
+
+            output += "config firewall address\n";
+
+            domainList.forEach(domain => {
+                members.push(domain);
+
+                output += `    edit ${domain}\n`;
+                output += `        set type fqdn\n`;
+                output += `        set fqdn ${domain}\n`;
+                output += `    next\n`;
+            });
+
+            cidrList.forEach(cidr => {
+                const [ip, prefix] = cidr.split('/');
+                const subnetMask = prefixToSubnetMask(prefix);
+                const objectName = `${hostnameFormat}${ip}-m${prefix}`;
+
+                members.push(objectName);
+
+                output += `    edit ${objectName}\n`;
+                output += `        set subnet ${ip} ${subnetMask}\n`;
+                output += `    next\n`;
+            });
+
+            ipList.forEach(ip => {
+
+                const objectName = `${hostnameFormat}${ip}-m32`;
+
+                members.push(objectName);
+
+                output += `    edit ${objectName}\n`;
+                output += `        set subnet ${ip} 255.255.255.255\n`;
+                output += `    next\n`;
+            });
+
+            output += "end\n\n";
+
+            output += "config firewall addrgrp\n";
+            output += `    edit ${groupName}\n`;
+
+            members.forEach(member => {
+                output += `        append member ${member}\n`;
+            });
+
+            output += "    next\n";
+            output += "end";
+
+            document.getElementById("fortiObjectOutput").value = output;
+        }
+
+function copyFortiObjectOutput(button) {
+
+    const output =
+        document.getElementById("fortiObjectOutput");
+
+    if (!output.value.trim()) {
+        return;
+    }
+
+    navigator.clipboard.writeText(output.value);
+
+    showCopied(button, "Copy Output");
+}
+
+        function clearFortiObject() {
+            document.getElementById("fortiInput").value = "";
+            document.getElementById("fortiGroupAddress").value = "";
+            document.getElementById("fortiHostnameFormat").value = "";
+            document.getElementById("fortiObjectOutput").value = "";
+        }
+        // End Create Object Forti
+
+
+        // Start Create Object Checkpoint
+        function generateCheckpointObject() {
+            const input = document.getElementById("checkpointInput").value;
+            const groupName = document.getElementById("checkpointGroupAddress").value.trim();
+            const hostnameFormat = document.getElementById("checkpointHostnameFormat").value.trim();
+
+            if (!groupName) {
+                alert("Group Address wajib diisi.");
+                return;
+            }
+
+            if (!hostnameFormat) {
+                alert("Format Hostname wajib diisi. Contoh: H_");
+                return;
+            }
+
+            const lines = input
+                .split(/\r?\n|,/)
+                .map(item => item.trim())
+                .filter(item => item !== "");
+
+            const uniqueItems = [...new Set(lines)];
+
+            const ipList = [];
+            const cidrList = [];
+            const domainList = [];
+
+            uniqueItems.forEach(item => {
+                if (isValidCIDR(item)) {
+                    cidrList.push(item);
+                } else if (isValidIP(item)) {
+                    ipList.push(item);
+                } else if (isDomain(item)) {
+                    domainList.push(item.toLowerCase());
+                }
+            });
+
+            cidrList.sort((a, b) => {
+                const ipA = a.split('/')[0];
+                const ipB = b.split('/')[0];
+                return ipToNumber(ipA) - ipToNumber(ipB);
+            });
+
+            ipList.sort((a, b) => ipToNumber(a) - ipToNumber(b));
+            domainList.sort();
+
+            let output = "";
+
+            output += `add group name "${groupName}"\n`;
+
+            domainList.forEach(domain => {
+                output += `add dns-domain name ".${domain}" is-sub-domain false\n`;
+                output += `set group name "${groupName}" members.add ".${domain}"\n`;
+            });
+
+            cidrList.forEach(cidr => {
+                const [ip, prefix] = cidr.split('/');
+                const objectName = `${hostnameFormat}${ip}-m${prefix}`;
+
+                output +=
+                    `add network name "${objectName}" subnet ${ip} mask-length ${prefix} groups ${groupName}\n`;
+            });
+
+            ipList.forEach(ip => {
+
+                const objectName = `${hostnameFormat}${ip}-m32`;
+
+                output += `add host name "${objectName}" ip-address ${ip} groups ${groupName}\n`;
+            });
+
+            document.getElementById("checkpointObjectOutput").value = output;
+        }
+
+function copyCheckpointObjectOutput(button) {
+
+    const output =
+        document.getElementById("checkpointObjectOutput");
+
+    if (!output.value.trim()) {
+        return;
+    }
+
+    navigator.clipboard.writeText(output.value);
+
+    showCopied(button, "Copy Output");
+}
+
+        function clearCheckpointObject() {
+            document.getElementById("checkpointInput").value = "";
+            document.getElementById("checkpointGroupAddress").value = "";
+            document.getElementById("checkpointHostnameFormat").value = "";
+            document.getElementById("checkpointObjectOutput").value = "";
+        }
+        // End Create Object Checkpoint
+
+        function showCopied(button, originalText) {
+
+            button.disabled = true;
+
+            const oldClass = button.className;
+
+            button.innerHTML = "✓ Copied";
+
+            if (button.classList.contains("btn-success")) {
+                button.classList.remove("btn-success");
+                button.classList.add("btn-primary");
+            }
+
+            setTimeout(() => {
+
+                button.innerHTML = originalText;
+                button.className = oldClass;
+                button.disabled = false;
+
+            }, 1500);
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
