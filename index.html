@@ -111,6 +111,11 @@
                             <i class="bi bi-terminal-x"></i> Unselect Object Forti
                         </button>
                     </li>
+                    <li class="nav-item">
+                        <button class="nav-link" onclick="showMenu('releaseCheckpoint', this)">
+                            <i class="bi bi-terminal-x"></i> Unselect Object CP
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -313,6 +318,42 @@ Block IP > Block_69.69.69.69"></textarea>
                     <div class="col-lg-7">
                         <label class="form-label fw-semibold">FortiGate Release CLI Output</label>
                         <textarea id="releaseFortiOutput" class="form-control" rows="22" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="releaseCheckpoint" class="menu-content d-none">
+            <div class="app-card p-4 p-md-5">
+                <h2 class="title-gradient">Unselect Object Check Point</h2>
+
+                <div class="row g-4 mt-2">
+                    <div class="col-lg-5">
+                        <label class="form-label fw-semibold">Input Path Object</label>
+                        <textarea id="releaseCheckpointInput" class="form-control" rows="15" placeholder="Ex:
+Block IP > INC0000001 > Block_10.10.10.10
+Block IP > INC0000002 > 1.11.11.11
+Block IP > INC0000003 > H_14.15.16.17
+Block IP > Block_69.69.69.69"></textarea>
+
+                        <div class="d-flex gap-2 mt-3 flex-wrap">
+                            <button class="btn btn-info text-dark fw-semibold" onclick="generateReleaseCheckpoint()">
+                                Generate CLI
+                            </button>
+
+                            <button class="btn btn-success fw-semibold" onclick="copyReleaseCheckpointOutput(this)">
+                                Copy Output
+                            </button>
+
+                            <button class="btn btn-outline-light" onclick="clearReleaseCheckpoint()">
+                                Clear
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <label class="form-label fw-semibold">Check Point Release CLI Output</label>
+                        <textarea id="releaseCheckpointOutput" class="form-control" rows="22" readonly></textarea>
                     </div>
                 </div>
             </div>
@@ -920,6 +961,81 @@ Block IP > Block_69.69.69.69"></textarea>
             document.getElementById("releaseFortiOutput").value = "";
         }
         // End Unselect Object Forti
+
+
+        // Start Unselect Object Check Point
+        function generateReleaseCheckpoint() {
+            const input = document.getElementById("releaseCheckpointInput").value;
+
+            const lines = input
+                .split(/\r?\n/)
+                .map(item => item.trim())
+                .filter(item => item !== "");
+
+            const uniqueCommands = new Set();
+            const parsedItems = [];
+            const invalidLines = [];
+
+            lines.forEach(line => {
+                const parts = line
+                    .split(/\s*>\s*/)
+                    .map(part => part.trim())
+                    .filter(part => part !== "");
+
+                if (parts.length < 2) {
+                    invalidLines.push(line);
+                    return;
+                }
+
+                const parentGroup = parts[parts.length - 2];
+                const objectName = parts[parts.length - 1];
+                const uniqueKey = `${parentGroup}||${objectName}`;
+
+                // Remove duplicate berdasarkan group + nama object terakhir sebelum menjadi output
+                if (!uniqueCommands.has(uniqueKey)) {
+                    uniqueCommands.add(uniqueKey);
+                    parsedItems.push({
+                        parentGroup,
+                        objectName
+                    });
+                }
+            });
+
+            let output = "";
+
+            parsedItems.forEach(item => {
+                output += `set group name "${item.parentGroup}" members.remove "${item.objectName}"\n`;
+            });
+
+            output = output.trim();
+
+            if (invalidLines.length > 0) {
+                output += "\n\n# Skipped invalid line:\n";
+                invalidLines.forEach(line => {
+                    output += `# ${line}\n`;
+                });
+            }
+
+            document.getElementById("releaseCheckpointOutput").value = output;
+        }
+
+        function copyReleaseCheckpointOutput(button) {
+            const output = document.getElementById("releaseCheckpointOutput");
+
+            if (!output.value.trim()) {
+                return;
+            }
+
+            navigator.clipboard.writeText(output.value);
+
+            showCopied(button, "Copy Output");
+        }
+
+        function clearReleaseCheckpoint() {
+            document.getElementById("releaseCheckpointInput").value = "";
+            document.getElementById("releaseCheckpointOutput").value = "";
+        }
+        // End Unselect Object Check Point
 
         function showCopied(button, originalText) {
 
