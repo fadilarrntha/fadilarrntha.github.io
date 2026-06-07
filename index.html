@@ -74,10 +74,74 @@
             text-align: center;
             color: #94a3b8;
         }
+
+        #appContent {
+            display: none;
+        }
+
+        .status-screen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .maintenance-card {
+            max-width: 560px;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+            padding: 36px;
+            text-align: center;
+        }
+
+        .maintenance-icon {
+            width: 76px;
+            height: 76px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(251, 191, 36, 0.12);
+            color: #fbbf24;
+            font-size: 38px;
+            margin-bottom: 18px;
+        }
+
+        .checking-text {
+            color: #94a3b8;
+        }
+
     </style>
 </head>
 
 <body>
+
+    <div id="checkingScreen" class="status-screen">
+        <div class="maintenance-card">
+            <div class="spinner-border text-info mb-3" role="status"></div>
+            <h3 class="title-gradient mb-2">Checking Application Status</h3>
+            <p class="checking-text mb-0">Mohon tunggu, sedang mengecek status aplikasi...</p>
+        </div>
+    </div>
+
+    <div id="maintenanceScreen" class="status-screen d-none">
+        <div class="maintenance-card">
+            <div class="maintenance-icon">
+                <i class="bi bi-tools"></i>
+            </div>
+            <h2 class="title-gradient mb-3">Aplikasi sedang Maintenance</h2>
+            <p class="text-secondary mb-4">Silakan coba kembali beberapa saat lagi.</p>
+            <button class="btn btn-info text-dark fw-semibold" onclick="checkApplicationStatus()">
+                <i class="bi bi-arrow-clockwise"></i> Cek Lagi
+            </button>
+        </div>
+    </div>
+
+    <div id="appContent">
 
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
@@ -362,6 +426,54 @@ Block IP > Block_69.69.69.69"></textarea>
     </div>
 
     <script>
+        const BASE_URL = "https://bkksmkn2pku.pocari.id";
+        const ACTIVE_TOOLS_NAME = "fadiltools";
+
+        document.addEventListener("DOMContentLoaded", function () {
+            checkApplicationStatus();
+        });
+
+        async function checkApplicationStatus() {
+            const checkingScreen = document.getElementById("checkingScreen");
+            const maintenanceScreen = document.getElementById("maintenanceScreen");
+            const appContent = document.getElementById("appContent");
+
+            checkingScreen.classList.remove("d-none");
+            maintenanceScreen.classList.add("d-none");
+            appContent.style.display = "none";
+
+            try {
+                const response = await fetch(`${BASE_URL}/api/active-tools/${encodeURIComponent(ACTIVE_TOOLS_NAME)}`, {
+                    method: "GET",
+                    headers: {
+                        "Accept": "application/json"
+                    },
+                    cache: "no-store"
+                });
+
+                if (!response.ok) {
+                    throw new Error("Gagal mengecek status aplikasi");
+                }
+
+                const result = await response.json();
+                const keterangan = result?.data?.keterangan?.toString().trim().toLowerCase();
+
+                checkingScreen.classList.add("d-none");
+
+                if (keterangan === "on") {
+                    appContent.style.display = "block";
+                    maintenanceScreen.classList.add("d-none");
+                } else {
+                    appContent.style.display = "none";
+                    maintenanceScreen.classList.remove("d-none");
+                }
+            } catch (error) {
+                checkingScreen.classList.add("d-none");
+                appContent.style.display = "none";
+                maintenanceScreen.classList.remove("d-none");
+            }
+        }
+
         // Start Sorting
         function showMenu(menuId, element) {
             document.querySelectorAll('.menu-content').forEach(menu => {
@@ -1059,6 +1171,8 @@ Block IP > Block_69.69.69.69"></textarea>
             }, 1500);
         }
     </script>
+
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
